@@ -9,12 +9,13 @@ const createArrayProperty = (object, arrayProperties) => {
         }
     });
     return arrayProperties;
-}
+};
+
 const f4 = (object, path) => {
     const arrayProperties = [];
     const tempArray = createArrayProperty(object, arrayProperties); 
     const value = tempArray.pop();
-    return (arrayProperties.join('.') === path) ? value : undefined
+    return arrayProperties.join('.') === path ? value : undefined
 }
 
 module.exports = f4;

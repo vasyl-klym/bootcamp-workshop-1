@@ -9,7 +9,8 @@ const setMagicValue = (object, arrayProperties, magicValue) => {
         }
     });
     return object;
-}
+};
+
 const makeNestedObject = (arr, magicValue) => {
     const reducer = (acc, item) => ({ [item]: acc });
     return arr.reduceRight(reducer, magicValue );
@@ -18,7 +19,7 @@ const makeNestedObject = (arr, magicValue) => {
 function f5 (object, path, magicValue) {
     const arrayProperties = [];
     const tempObject = setMagicValue(object, arrayProperties, magicValue);
-    return (arrayProperties.join('.') === path) ? tempObject : makeNestedObject(path.split('.'), magicValue);
+    return arrayProperties.join('.') === path ? tempObject : makeNestedObject(path.split('.'), magicValue);
 }
 
 module.exports = f5;
